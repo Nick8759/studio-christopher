@@ -72,7 +72,7 @@
   }), { threshold: .5 });
   $$('[data-count]').forEach(el => cObs.observe(el));
 
-  /* ---------- Prossima diretta (martedì e mercoledì 23:30, domenica 00:30, ora di Roma) ---------- */
+  /* ---------- Prossima diretta (martedì e mercoledì 23:30, lunedì 00:30, ora di Roma) ---------- */
   const romeNow = () => {
     const p = Object.fromEntries(new Intl.DateTimeFormat('en-GB', {
       timeZone: 'Europe/Rome', year: 'numeric', month: '2-digit', day: '2-digit',
@@ -80,7 +80,7 @@
     }).formatToParts(new Date()).map(x => [x.type, x.value]));
     return new Date(+p.year, +p.month - 1, +p.day, +p.hour % 24, +p.minute, +p.second);
   };
-  const SLOTS = { 0: [0, 30], 2: [23, 30], 3: [23, 30] }; // domenica 00:30, martedì e mercoledì 23:30
+  const SLOTS = { 1: [0, 30], 2: [23, 30], 3: [23, 30] }; // lunedì 00:30, martedì e mercoledì 23:30
   const LIVE_MIN = 60;
   const onair = $('#onair');
   const tick = () => {
