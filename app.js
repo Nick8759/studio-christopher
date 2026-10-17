@@ -273,6 +273,14 @@
   });
   rm.addEventListener('close', () => { rmPlayer.innerHTML = rmPoster; });
 
+
+  /* ---------- Privacy Policy ---------- */
+  const pv = $('#pv');
+  $$('[data-pv-open]').forEach(b => b.addEventListener('click', () => pv.showModal()));
+  $('[data-pv-close]').addEventListener('click', () => pv.close());
+  pv.addEventListener('click', e => { if (e.target === pv) pv.close(); });
+  if (location.hash === '#privacy') pv.showModal();
+
   /* ---------- Modulo -> WhatsApp ---------- */
   $('#form').addEventListener('submit', e => {
     e.preventDefault();
