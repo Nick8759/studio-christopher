@@ -886,3 +886,4 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
 @media (max-width:960px){.inv__cats{grid-template-columns:1fr 1fr}}
 @media (max-width:480px){.inv__cats{grid-template-columns:1fr}.inv__cta{padding:1.1rem}}
 @media (prefers-reduced-motion:reduce){.inv__q,.inv__cta,.inv__photo img,.inv__photo::after{animation-iteration-count:infinite!important;animation-duration:1.2s!important}}
+.lang__opt span{white-space:nowrap}
