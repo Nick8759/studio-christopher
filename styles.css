@@ -960,3 +960,20 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
 .appeal__all span{display:block;margin-top:.3rem}
 .appeal__clear{margin-bottom:.8rem;font-size:clamp(1.4rem,1rem + 1.6vw,2.3rem);letter-spacing:.05em;color:#f0cf86;animation:appealBlinkGold 1.2s steps(1,end) infinite,expertGlow 1.2s ease-in-out infinite}
 .appeal__all span{animation:appealBlinkGold 1.2s steps(1,end) infinite,expertGlow 1.2s ease-in-out infinite}
+/* foto hero più grande con alone luminoso attorno alla figura */
+.hero__face::before{content:"";position:absolute;inset:6px;border-radius:9px;z-index:0;
+  background:radial-gradient(60% 50% at 50% 38%,rgba(255,226,150,.55) 0%,rgba(201,162,79,.28) 35%,rgba(40,28,14,.9) 70%,#120e16 100%)}
+.hero__face img{position:relative;z-index:1;outline:0;box-shadow:none;object-fit:cover;object-position:50% 100%;
+  clip-path:inset(0 round 9px);
+  filter:drop-shadow(0 0 2px rgba(255,248,220,.95)) drop-shadow(0 0 8px rgba(255,220,140,.85)) drop-shadow(0 0 22px rgba(230,180,80,.6));
+  animation:haloPulse 2.6s ease-in-out infinite}
+.hero__face::after{z-index:2}
+@keyframes haloPulse{0%,100%{filter:drop-shadow(0 0 2px rgba(255,248,220,.9)) drop-shadow(0 0 7px rgba(255,220,140,.75)) drop-shadow(0 0 18px rgba(230,180,80,.5))}
+  50%{filter:drop-shadow(0 0 3px rgba(255,252,235,1)) drop-shadow(0 0 12px rgba(255,226,150,1)) drop-shadow(0 0 30px rgba(240,190,90,.8))}}
+@media (min-width:961px){.hero__face{width:clamp(250px,20vw,290px)}}
+@media (max-width:960px){.hero__face{width:clamp(160px,42vw,220px)}}
+@media (max-width:640px){.hero__text>.eyebrow{padding-right:calc(clamp(160px,42vw,220px) + .6rem)}}
+@media (max-width:380px){.hero__face{width:148px}.hero__text>.eyebrow{padding-right:158px}}
+@media (prefers-reduced-motion:reduce){.hero__face img{animation:haloPulse 2.6s ease-in-out infinite!important}}
+@media (max-width:640px){.hero__face{width:clamp(140px,38vw,156px)}.hero__text>.eyebrow{padding-right:calc(clamp(140px,38vw,156px) + .6rem)}}
+@media (max-width:380px){.hero__face{width:138px}.hero__text>.eyebrow{padding-right:148px}}
