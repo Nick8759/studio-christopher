@@ -994,7 +994,7 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
   -webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 50%,transparent 97%),linear-gradient(to right,transparent 0,#000 16%,#000 84%,transparent 100%);mask-composite:intersect}
 @media (max-width:960px){.hero__face{shape-outside:polygon(18% 0,82% 0,100% 55%,100% 100%,0 100%,0 55%);shape-margin:.3rem;margin-left:0}}
 .hero__face::before{display:none!important}
-.hero__face img{filter:none!important;animation:none!important}
+/* (rimosso blocco filtro) */
 .hero__face{animation:haloWrap 2.6s ease-in-out infinite!important}
 @keyframes haloWrap{0%,100%{filter:drop-shadow(0 0 2px rgba(255,248,220,.9)) drop-shadow(0 0 7px rgba(255,220,140,.75)) drop-shadow(0 0 18px rgba(230,180,80,.5))}
   50%{filter:brightness(1.08) drop-shadow(0 0 3px rgba(255,252,235,1)) drop-shadow(0 0 12px rgba(255,226,150,1)) drop-shadow(0 0 30px rgba(240,190,90,.8))}}
@@ -1003,7 +1003,7 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
   -webkit-mask-image:linear-gradient(to bottom,#000 58%,transparent 96%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;
   mask-image:linear-gradient(to bottom,#000 58%,transparent 96%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-composite:intersect}
 .hero__face img{-webkit-mask-image:none!important;mask-image:none!important;height:auto!important;aspect-ratio:4/5;animation:haloPulse 2.6s ease-in-out infinite!important;
-  filter:drop-shadow(0 0 2px rgba(255,248,220,.95)) drop-shadow(0 0 8px rgba(255,220,140,.85)) drop-shadow(0 0 22px rgba(230,180,80,.6))!important}
+  filter:drop-shadow(0 0 2px rgba(255,248,220,.95)) drop-shadow(0 0 8px rgba(255,220,140,.85)) drop-shadow(0 0 22px rgba(230,180,80,.6))}
 .hero__face::after{inset:26px 22px 0!important}
 @media (prefers-reduced-motion:reduce){.hero__face img{animation:haloPulse 2.6s ease-in-out infinite!important}}
 .hero__face{-webkit-mask-image:linear-gradient(to bottom,#000 50%,transparent 94%),linear-gradient(to right,transparent 2%,#000 26%,#000 74%,transparent 98%);
@@ -1031,3 +1031,120 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
     -webkit-mask:url(assets/christopher-sagoma.webp) center/contain no-repeat;mask:url(assets/christopher-sagoma.webp) center/contain no-repeat;mix-blend-mode:screen}
   .hero__media .feature{position:relative;z-index:1}
 }
+/* foto iniziale +30% su computer */
+@media (min-width:961px){.hero__portrait{width:clamp(520px,44vw,650px);max-width:none;margin:-2rem 0 -90px;padding:36px 32px 0}
+  .hero__portrait::after{inset:36px 32px 0}}
+/* telefono: foto laterale ingrandita (inquadratura più stretta) senza coprire le scritte */
+@media (max-width:640px){
+  .hero__face{width:clamp(170px,47vw,200px)!important;padding:16px 0 0!important}
+  .hero__face img{width:130%!important;max-width:none!important;margin-left:-15%!important}
+  .hero__face::after{display:none}
+  .hero__face{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 5%,#000 58%,transparent 97%),linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0,#000 5%,#000 58%,transparent 97%),linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%)}
+}
+/* foto leggermente più piccola e più nitida */
+@media (max-width:640px){.hero__face{width:clamp(160px,44vw,186px)!important}.hero__face img{width:115%!important;margin-left:-7.5%!important}}
+/* telefono: foto +20% */
+@media (max-width:640px){.hero__face{width:clamp(176px,50vw,214px)!important}.hero__face img{width:120%!important;margin-left:-10%!important}
+  .hero__text>.eyebrow{padding-right:calc(50vw - 1.6rem)!important}}
+@media (max-width:640px){.hero__text>.eyebrow{padding-right:calc(50vw - 2.8rem)!important}}
+/* telefono: foto sopra il titolo */
+@media (max-width:640px){
+  .hero__headline .hero__face{float:none!important;position:relative!important;left:auto!important;top:auto!important;right:auto!important;display:block!important;
+    width:min(78%,330px)!important;margin:-.6rem auto -.8rem!important;shape-outside:none!important}
+  .hero__text>.eyebrow{padding-right:0!important}
+}
+@media (max-width:640px){.hero__headline .hero__face{margin:-1.6rem auto -.8rem!important}}
+/* scritta "In TV da oltre 21 anni" e logo Canale Italia più grandi */
+.hero__eyebrow{font-size:clamp(.95rem,.8rem + .5vw,1.25rem)!important;letter-spacing:.12em;gap:.8rem;flex-wrap:wrap;row-gap:.5rem}
+.hero__eyebrow .dot{width:10px;height:10px}
+.hero__eyebrow .eyebrow__logo{height:clamp(44px,3.6vw,58px)!important;width:auto!important;max-height:none!important}
+@media (max-width:640px){.hero__eyebrow{font-size:1.08rem!important;letter-spacing:.1em;justify-content:center;text-align:center}
+  .hero__eyebrow .eyebrow__logo{height:54px!important}
+  .hero__headline .hero__face{margin-top:-1rem!important}}
+@media (max-width:640px){.hero__headline .hero__face{margin-top:-2.6rem!important}}
+/* telefono: logo accanto alla scritta */
+@media (max-width:640px){.hero__eyebrow{flex-wrap:nowrap!important;white-space:nowrap;font-size:clamp(.82rem,3.9vw,1.05rem)!important;letter-spacing:.06em;gap:.5rem!important}
+  .hero__eyebrow .eyebrow__logo{height:clamp(38px,11.5vw,50px)!important;flex:none}}
+/* telefono: foto di nuovo di lato, accanto al titolo; scritta e logo sulla riga sopra */
+@media (max-width:640px){
+  .hero__headline .hero__face{float:right!important;display:block!important;position:relative!important;width:clamp(176px,50vw,214px)!important;
+    margin:-1rem -.4rem .2rem .3rem!important;shape-outside:polygon(18% 0,82% 0,100% 55%,100% 100%,0 100%,0 55%)!important;shape-margin:.3rem}
+  .hero__face img{width:120%!important;margin-left:-10%!important}
+  .hero__eyebrow{justify-content:flex-start!important;text-align:left!important}
+}
+/* effetto lucido: riflessi speculari fissi sulla figura che brillano piano, come una superficie laccata */
+.spark{display:none!important}
+.hero__face img,.hero__portrait img{animation:glossHalo 2.6s ease-in-out infinite!important}
+@keyframes glossHalo{0%,100%{filter:brightness(1.05) contrast(1.06) saturate(1.05) drop-shadow(0 0 2px rgba(255,248,220,.9)) drop-shadow(0 0 7px rgba(255,220,140,.75)) drop-shadow(0 0 18px rgba(230,180,80,.5))}
+  50%{filter:brightness(1.1) contrast(1.06) saturate(1.05) drop-shadow(0 0 3px rgba(255,252,235,1)) drop-shadow(0 0 12px rgba(255,226,150,1)) drop-shadow(0 0 30px rgba(240,190,90,.8))}}
+.hero__face::after,.hero__portrait::after{display:block!important;content:"";position:absolute;pointer-events:none;z-index:2;transform:none!important;mix-blend-mode:screen;
+  background-image:linear-gradient(150deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,.10) 22%,transparent 38%,transparent 62%,rgba(255,236,190,.10) 80%,rgba(255,236,190,.18) 100%)!important;
+  background-repeat:no-repeat!important;background-size:100% 100%!important;
+  animation:glossPulse 3.2s ease-in-out infinite!important;
+  -webkit-mask:url(assets/christopher-sagoma.webp) center/100% 100% no-repeat;mask:url(assets/christopher-sagoma.webp) center/100% 100% no-repeat}
+@keyframes glossPulse{0%,100%{opacity:.75}50%{opacity:1}}
+.hero__portrait::after{inset:36px 32px auto 32px!important;aspect-ratio:4/5}
+@media (min-width:641px) and (max-width:960px){.hero__face::after{inset:24px 14px auto 14px!important;aspect-ratio:4/5}}
+@media (max-width:640px){.hero__face::after{inset:16px -10% auto -10%!important;aspect-ratio:4/5}}
+
+/* riflesso di luce che arriva sul volto */
+.hero__face::after,.hero__portrait::after{
+  background-image:
+    radial-gradient(ellipse 22% 15% at 47% 27%,rgba(255,250,236,.48),rgba(255,232,185,.2) 45%,transparent 75%),
+    radial-gradient(ellipse 14% 10% at 40% 40%,rgba(255,244,220,.22),transparent 72%),
+    linear-gradient(150deg,rgba(255,255,255,.2) 0%,rgba(255,255,255,.07) 22%,transparent 40%)!important;
+  animation:faceLight 4.5s ease-in-out infinite!important}
+@keyframes faceLight{0%,100%{opacity:.7}45%{opacity:1}55%{opacity:.95}}
+.beam{position:absolute;z-index:3;pointer-events:none;left:-26%;top:-30%;width:40%;height:100%;
+  transform:rotate(-38deg);transform-origin:50% 0;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,244,210,.22) 25%,rgba(255,248,226,.6) 50%,rgba(255,244,210,.22) 75%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 25%,#000 85%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 25%,#000 85%,transparent 100%);
+  filter:blur(4px);mix-blend-mode:screen;animation:beamPulse 4.5s ease-in-out infinite}
+@keyframes beamPulse{0%,100%{opacity:.5}45%{opacity:1}55%{opacity:.9}}
+/* effetto lucente in volto che compare e scompare a scatti */
+.beam{display:none!important}
+.hero__face::after,.hero__portrait::after{
+  background-image:
+    radial-gradient(ellipse 19% 24% at 53% 40%,rgba(255,250,235,.42),rgba(255,236,200,.16) 55%,transparent 80%),
+    radial-gradient(ellipse 13% 5% at 52% 22.5%,rgba(255,255,255,.6),transparent 72%),
+    radial-gradient(ellipse 2.2% 7% at 54.5% 40%,rgba(255,255,255,.7),transparent 72%),
+    radial-gradient(ellipse 3% 2.2% at 55% 47%,rgba(255,255,255,.75),transparent 72%),
+    radial-gradient(ellipse 5.5% 2.6% at 41% 44%,rgba(255,255,255,.42),transparent 72%),
+    radial-gradient(ellipse 4.5% 2.4% at 66% 43.5%,rgba(255,255,255,.36),transparent 72%),
+    radial-gradient(ellipse 4.5% 2.2% at 54% 60.5%,rgba(255,255,255,.32),transparent 72%)!important;
+  opacity:0;animation:faceFlash 3.2s steps(1,end) infinite!important}
+@keyframes faceFlash{0%{opacity:0}8%{opacity:1}14%{opacity:0}20%{opacity:1}30%{opacity:0}100%{opacity:0}}
+/* stesso effetto della foto nei contatti: riflesso dorato che attraversa la foto + luminosità che pulsa */
+.hero__face::after,.hero__portrait::after{
+  background-image:linear-gradient(115deg,transparent 43%,rgba(255,240,200,.22) 47%,rgba(255,246,222,.85) 50%,rgba(255,240,200,.22) 53%,transparent 57%)!important;
+  background-size:250% 100%!important;background-repeat:no-repeat!important;background-position:120% 0;
+  opacity:1;animation:faceGlintBg 6s ease-in-out infinite!important}
+.hero__face img,.hero__portrait img{animation:contactShine 6s ease-in-out infinite!important}
+@keyframes contactShine{0%,100%{filter:brightness(1.14) saturate(1.05) contrast(1.02) drop-shadow(0 0 2px rgba(255,248,220,.9)) drop-shadow(0 0 8px rgba(255,220,140,.7)) drop-shadow(0 0 20px rgba(230,180,80,.45))}
+  50%{filter:brightness(1.28) saturate(1.05) contrast(1.02) drop-shadow(0 0 3px rgba(255,252,235,1)) drop-shadow(0 0 12px rgba(255,226,150,.95)) drop-shadow(0 0 30px rgba(240,190,90,.75))}}
+/* bottone Esplora i video subito sotto titolo e foto */
+.hero__cta--top{margin-top:1.4rem;position:relative;z-index:3}
+.hero__cta--top .btn{font-size:1.05rem;padding-inline:1.8rem}
+@media (max-width:640px){.hero__cta--top{margin-top:.4rem;clear:both}}
+/* Esplora i video sotto il testo di presentazione, più stretto */
+.hero__cta--top{margin-top:1.3rem!important;clear:none}
+.hero__cta--top .btn{flex:0 0 auto!important;width:auto;font-size:1rem;padding:.75rem 1.4rem}
+.hero__cta--top + .hero__cta{margin-top:.9rem}
+/* telefono: Esplora i video visibile nella prima schermata, più vicino alla foto */
+@media (max-width:640px){
+  .hero{padding-top:14px!important}
+  .hero__eyebrow{margin-bottom:8px!important}
+  .hero__lead{margin-top:10px!important;font-size:.94rem!important;line-height:1.45!important}
+  .hero__cta--top{margin-top:12px!important}
+}
+/* Esplora i video: grande come "Scrivi a Christopher" e lampeggiante */
+.hero__cta--top .btn{font-size:var(--text-sm);padding:.85rem 1.35rem;min-width:182px;justify-content:center}
+@media (max-width:640px){.hero__cta--top .btn{flex:1 1 auto!important;width:100%;justify-content:center}}
+.hero__cta--top .btn{animation:exploreBlink 1.4s ease-in-out infinite}
+@keyframes exploreBlink{0%,100%{box-shadow:0 0 0 0 rgba(233,199,125,0),0 0 0 1px rgba(233,199,125,.5);filter:brightness(1)}
+  50%{box-shadow:0 0 26px 4px rgba(240,205,120,.7),0 0 0 3px rgba(255,230,160,.95);filter:brightness(1.2)}}
+.hero__cta--top .btn:hover{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.hero__cta--top .btn{animation-duration:1.4s!important;animation-iteration-count:infinite!important}}
+/* Esplora i video: senza lampeggio */
+.hero__cta--top .btn{animation:none!important;filter:none}
