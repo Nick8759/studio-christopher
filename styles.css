@@ -952,3 +952,11 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
 .sette__ph img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:11px}
 .sette__ph figcaption{position:absolute;left:3px;right:3px;bottom:3px;padding:1.4rem .8rem .55rem;border-radius:0 0 11px 11px;background:linear-gradient(180deg,transparent,rgba(10,8,14,.88));font-family:var(--font-display);font-size:1.15rem;color:#f6ead0}
 @media (max-width:640px){.sette__photos{grid-template-columns:1fr}}
+.appeal__photo{position:relative;max-width:760px;margin:1.6rem auto;border-radius:18px;overflow:hidden;padding:4px;background:linear-gradient(135deg,#fff3c4,#c9a24f 35%,#7d6430 60%,#f0cf86);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 30px rgba(233,199,125,.3)}
+.appeal__photo img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:14px}
+.appeal__all{max-width:900px;margin:1.4rem auto 0;text-align:center;font-weight:800;color:#f6ead0;font-size:clamp(1.1rem,.95rem + .6vw,1.45rem);line-height:1.5}
+.appeal__all p+p{margin-top:.6rem}
+.appeal__all span{color:#f0cf86;letter-spacing:.03em}
+.appeal__all span{display:block;margin-top:.3rem}
+.appeal__clear{margin-bottom:.8rem;font-size:clamp(1.4rem,1rem + 1.6vw,2.3rem);letter-spacing:.05em;color:#f0cf86;animation:appealBlinkGold 1.2s steps(1,end) infinite,expertGlow 1.2s ease-in-out infinite}
+.appeal__all span{animation:appealBlinkGold 1.2s steps(1,end) infinite,expertGlow 1.2s ease-in-out infinite}
