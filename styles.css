@@ -977,3 +977,57 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
 @media (prefers-reduced-motion:reduce){.hero__face img{animation:haloPulse 2.6s ease-in-out infinite!important}}
 @media (max-width:640px){.hero__face{width:clamp(140px,38vw,156px)}.hero__text>.eyebrow{padding-right:calc(clamp(140px,38vw,156px) + .6rem)}}
 @media (max-width:380px){.hero__face{width:138px}.hero__text>.eyebrow{padding-right:148px}}
+/* foto senza cornice, fusa con lo sfondo, vicina alle scritte */
+.hero__face{background:none!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;aspect-ratio:4/5;
+  animation:photoShine 6s ease-in-out infinite!important}
+.hero__face::before{inset:-12% -18% 0;border-radius:50%;background:radial-gradient(closest-side,rgba(233,190,100,.30),rgba(233,190,100,.10) 55%,transparent 100%);filter:blur(6px)}
+.hero__face img{border-radius:0!important;clip-path:none!important;object-fit:contain;object-position:50% 100%;
+  -webkit-mask-image:radial-gradient(ellipse 78% 92% at 50% 30%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 78% 92% at 50% 30%,#000 62%,transparent 100%)}
+.hero__face::after{inset:0!important;border-radius:0!important;
+  -webkit-mask:url(assets/christopher-sagoma.webp) center/contain no-repeat;mask:url(assets/christopher-sagoma.webp) center/contain no-repeat}
+@media (min-width:961px){.hero__face{width:clamp(280px,23vw,340px);left:calc(100% - 2.5rem)}}
+@media (min-width:1280px){.hero__face{top:calc(-1.6em - 120px)}}
+@media (max-width:960px){.hero__face{shape-outside:url(assets/christopher-sagoma.webp);shape-image-threshold:.3;shape-margin:.5rem;margin-left:.3rem}}
+@media (max-width:640px){.hero__face{width:clamp(160px,44vw,190px)}.hero__text>.eyebrow{padding-right:calc(clamp(160px,44vw,190px) - 1.5rem)}}
+@media (max-width:380px){.hero__face{width:150px}.hero__text>.eyebrow{padding-right:120px}}
+.hero__face img{-webkit-mask-image:linear-gradient(to bottom,#000 50%,transparent 97%),linear-gradient(to right,transparent 0,#000 16%,#000 84%,transparent 100%);
+  -webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 50%,transparent 97%),linear-gradient(to right,transparent 0,#000 16%,#000 84%,transparent 100%);mask-composite:intersect}
+@media (max-width:960px){.hero__face{shape-outside:polygon(18% 0,82% 0,100% 55%,100% 100%,0 100%,0 55%);shape-margin:.3rem;margin-left:0}}
+.hero__face::before{display:none!important}
+.hero__face img{filter:none!important;animation:none!important}
+.hero__face{animation:haloWrap 2.6s ease-in-out infinite!important}
+@keyframes haloWrap{0%,100%{filter:drop-shadow(0 0 2px rgba(255,248,220,.9)) drop-shadow(0 0 7px rgba(255,220,140,.75)) drop-shadow(0 0 18px rgba(230,180,80,.5))}
+  50%{filter:brightness(1.08) drop-shadow(0 0 3px rgba(255,252,235,1)) drop-shadow(0 0 12px rgba(255,226,150,1)) drop-shadow(0 0 30px rgba(240,190,90,.8))}}
+/* alone solo attorno a testa e spalle, corpo che sfuma nel buio */
+.hero__face{box-sizing:border-box;padding:26px 22px 0!important;aspect-ratio:auto!important;animation:none!important;
+  -webkit-mask-image:linear-gradient(to bottom,#000 58%,transparent 96%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom,#000 58%,transparent 96%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-composite:intersect}
+.hero__face img{-webkit-mask-image:none!important;mask-image:none!important;height:auto!important;aspect-ratio:4/5;animation:haloPulse 2.6s ease-in-out infinite!important;
+  filter:drop-shadow(0 0 2px rgba(255,248,220,.95)) drop-shadow(0 0 8px rgba(255,220,140,.85)) drop-shadow(0 0 22px rgba(230,180,80,.6))!important}
+.hero__face::after{inset:26px 22px 0!important}
+@media (prefers-reduced-motion:reduce){.hero__face img{animation:haloPulse 2.6s ease-in-out infinite!important}}
+.hero__face{-webkit-mask-image:linear-gradient(to bottom,#000 50%,transparent 94%),linear-gradient(to right,transparent 2%,#000 26%,#000 74%,transparent 98%);
+  mask-image:linear-gradient(to bottom,#000 50%,transparent 94%),linear-gradient(to right,transparent 2%,#000 26%,#000 74%,transparent 98%)}
+@media (min-width:961px){.hero__face{width:clamp(300px,25vw,360px)}}
+@media (max-width:960px){.hero__face{padding:14px 10px 0!important}.hero__face::after{inset:14px 10px 0!important}}
+@media (max-width:640px){.hero__face{width:clamp(170px,47vw,200px)}.hero__text>.eyebrow{padding-right:calc(clamp(170px,47vw,200px) - 2rem)}}
+@media (max-width:380px){.hero__face{width:164px}.hero__text>.eyebrow{padding-right:132px}}
+.hero__face{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 50%,transparent 94%),linear-gradient(to right,transparent 2%,#000 26%,#000 74%,transparent 98%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 50%,transparent 94%),linear-gradient(to right,transparent 2%,#000 26%,#000 74%,transparent 98%)}
+@media (max-width:960px){.hero__face{padding:24px 14px 0!important}.hero__face::after{inset:24px 14px 0!important}}
+/* desktop: foto grande nella colonna destra sopra il video, niente spazio vuoto */
+.hero__portrait{display:none}
+@media (min-width:961px){
+  .hero__headline .hero__face{display:none}
+  .hero__grid{align-items:start}
+  .hero__media{display:flex;flex-direction:column}
+  .hero__portrait{display:block;position:relative;z-index:0;align-self:center;width:min(100%,clamp(400px,34vw,500px));margin:-1.5rem 0 -70px;padding:30px 26px 0;box-sizing:border-box;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 55%,transparent 96%),linear-gradient(to right,transparent 2%,#000 24%,#000 76%,transparent 98%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 55%,transparent 96%),linear-gradient(to right,transparent 2%,#000 24%,#000 76%,transparent 98%);mask-composite:intersect}
+  .hero__portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;animation:haloPulse 2.6s ease-in-out infinite;
+    filter:drop-shadow(0 0 2px rgba(255,248,220,.95)) drop-shadow(0 0 8px rgba(255,220,140,.85)) drop-shadow(0 0 22px rgba(230,180,80,.6))}
+  .hero__portrait::after{content:"";position:absolute;inset:30px 26px 0;pointer-events:none;
+    background:linear-gradient(115deg,transparent 38%,rgba(255,240,200,.7) 50%,transparent 62%) no-repeat;background-size:250% 100%;background-position:120% 0;animation:faceGlintBg 6s ease-in-out infinite;
+    -webkit-mask:url(assets/christopher-sagoma.webp) center/contain no-repeat;mask:url(assets/christopher-sagoma.webp) center/contain no-repeat;mix-blend-mode:screen}
+  .hero__media .feature{position:relative;z-index:1}
+}
