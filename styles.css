@@ -1148,3 +1148,14 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
 @media (prefers-reduced-motion:reduce){.hero__cta--top .btn{animation-duration:1.4s!important;animation-iteration-count:infinite!important}}
 /* Esplora i video: senza lampeggio */
 .hero__cta--top .btn{animation:none!important;filter:none}
+/* avviso importante procura notarile (lampeggiante) */
+.legal-alert{max-width:900px;margin:1.6rem auto 1.4rem;padding:1.1rem 1.4rem 1.2rem;border:2px solid #e23b3b;border-radius:16px;
+  background:linear-gradient(180deg,rgba(226,59,59,.14),rgba(226,59,59,.05));text-align:center;animation:legalPulse 1.3s ease-in-out infinite}
+.legal-alert__tag{display:inline-block;font-family:var(--font-body);font-weight:900;letter-spacing:.14em;font-size:clamp(1.05rem,.9rem + .7vw,1.45rem);
+  color:#fff;background:#d62828;padding:.3rem .95rem;border-radius:999px;margin-bottom:.7rem;animation:legalTag 1.3s steps(1,end) infinite}
+.legal-alert__txt{margin:0;font-family:var(--font-body);font-weight:600;font-size:clamp(1rem,.9rem + .45vw,1.2rem);line-height:1.5;color:var(--text,#f3ead8)}
+.legal-alert__txt strong{color:#ff5a5a;font-weight:900}
+@keyframes legalPulse{0%,100%{box-shadow:0 0 0 0 rgba(226,59,59,0);border-color:#e23b3b}50%{box-shadow:0 0 30px 4px rgba(226,59,59,.55);border-color:#ff7a7a}}
+@keyframes legalTag{0%{background:#d62828;color:#fff}50%{background:#ffd54a;color:#5a0a0a}}
+@media (prefers-reduced-motion:reduce){.legal-alert,.legal-alert__tag{animation-iteration-count:infinite!important;animation-duration:1.3s!important}}
+[data-theme="light"] .legal-alert__txt{color:#2a1a1a}[data-theme="light"] .legal-alert__txt strong{color:#b01515}
