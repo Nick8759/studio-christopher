@@ -1177,3 +1177,14 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
 @keyframes goldDot{0%{opacity:1}50%{opacity:.15}}
 @keyframes goldTick{0%{color:#fff;text-shadow:0 0 12px #fff}100%{color:inherit;text-shadow:none}}
 @media (max-width:560px){.gold-live{border-radius:22px;flex-direction:column;gap:.45rem}}
+/* bottone monete d'oro (sterlina, marengo, krugerrand) */
+.gold-live--coins{margin-top:1rem}
+.coins{display:flex;gap:.5rem 1.3rem;flex-wrap:wrap;justify-content:center;font-family:var(--font-body)}
+.coin{display:flex;flex-direction:column;align-items:center;line-height:1.15}
+.coin__n{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.coin__v{font-size:clamp(1.1rem,.95rem + .6vw,1.4rem);font-weight:900}
+.gold-live--coins.flash .coin__v{animation:goldTick .8s ease-out}
+.gold-live--coins .gold-live__meta{flex-basis:100%;flex-direction:row;justify-content:center;gap:.6rem;margin-top:-.2rem}
+.gold-live--coins .gold-live__meta span+span::before{content:"· ";}
+.gold-live--coins{border-radius:40px}
+@media (max-width:560px){.gold-live--coins .gold-live__badge{letter-spacing:.05em;font-size:.74rem;white-space:nowrap}.gold-live--coins{border-radius:22px}.gold-live--coins .gold-live__meta{flex-direction:column;gap:0}.gold-live--coins .gold-live__meta span+span::before{content:none}}

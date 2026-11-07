@@ -350,6 +350,10 @@
       tm.textContent='aggiornato alle '+t.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
       if(last!==null && p!==last){ch.textContent=(p>last?'▲ in rialzo':'▼ in ribasso');ch.className='gold-live__chg '+(p>last?'up':'down');box.classList.remove('flash');void box.offsetWidth;box.classList.add('flash');}
       last=p;
+      const cb=document.getElementById('coinsLive');
+      if(cb){cb.querySelectorAll('.coin__v').forEach(el=>{el.textContent=fmt(p/OZ*parseFloat(el.dataset.fine),2)});
+        const ct=document.getElementById('coinsTime'); if(ct) ct.textContent=tm.textContent;
+        if(box.classList.contains('flash')){cb.classList.remove('flash');void cb.offsetWidth;cb.classList.add('flash');}}
     }catch(e){ if(last===null){oz.textContent='Quotazione oro'; g.textContent='—'; tm.textContent='quotazione momentaneamente non disponibile';} }
   }
   load(); setInterval(load,30000);
