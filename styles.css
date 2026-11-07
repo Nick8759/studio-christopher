@@ -1188,3 +1188,10 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
 .gold-live--coins .gold-live__meta span+span::before{content:"· ";}
 .gold-live--coins{border-radius:40px}
 @media (max-width:560px){.gold-live--coins .gold-live__badge{letter-spacing:.05em;font-size:.74rem;white-space:nowrap}.gold-live--coins{border-radius:22px}.gold-live--coins .gold-live__meta{flex-direction:column;gap:0}.gold-live--coins .gold-live__meta span+span::before{content:none}}
+/* link di riferimento Il Sole 24 Ore sotto i bottoni delle quotazioni */
+.gold-ref{display:block;width:max-content;max-width:100%;margin:.55rem auto 0;padding:.3rem .9rem;text-align:center;font-family:var(--font-body);font-size:.9rem;font-weight:600;
+  color:var(--gold,#e9c77d);text-decoration:none;border-bottom:1px solid rgba(233,199,125,.45)}
+.gold-ref b{font-weight:800;color:#fff3d0}
+.gold-ref:hover{color:#fff}
+[data-theme="light"] .gold-ref b{color:#5a3d00}
+@media (max-width:560px){.gold-ref{font-size:.84rem;white-space:nowrap}}
