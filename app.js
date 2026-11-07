@@ -333,3 +333,24 @@
   s.src = 'https://translate.google.com/translate_a/element.js?cb=gtInit';
   s.async = true; document.body.appendChild(s);
 })();
+
+/* Quotazione dell'oro in tempo reale (EUR) */
+(function(){
+  const box=document.getElementById('goldLive'); if(!box) return;
+  const oz=document.getElementById('goldOz'), g=document.getElementById('goldG'), tm=document.getElementById('goldTime'), ch=document.getElementById('goldChg');
+  const OZ=31.1034768; let first=null, last=null;
+  const fmt=(v,d)=>v.toLocaleString('it-IT',{style:'currency',currency:'EUR',useGrouping:'always',minimumFractionDigits:d,maximumFractionDigits:d});
+  async function load(){
+    try{
+      const r=await fetch('https://api.gold-api.com/price/XAU/EUR',{cache:'no-store'}); if(!r.ok) throw 0;
+      const j=await r.json(); const p=+j.price; if(!p) throw 0;
+      if(first===null) first=p;
+      oz.textContent=fmt(p,2)+' /oncia'; g.textContent=fmt(p/OZ,2);
+      const t=j.updatedAt?new Date(j.updatedAt):new Date();
+      tm.textContent='aggiornato alle '+t.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+      if(last!==null && p!==last){ch.textContent=(p>last?'▲ in rialzo':'▼ in ribasso');ch.className='gold-live__chg '+(p>last?'up':'down');box.classList.remove('flash');void box.offsetWidth;box.classList.add('flash');}
+      last=p;
+    }catch(e){ if(last===null){oz.textContent='Quotazione oro'; g.textContent='—'; tm.textContent='quotazione momentaneamente non disponibile';} }
+  }
+  load(); setInterval(load,30000);
+})();
