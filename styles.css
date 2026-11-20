@@ -1206,6 +1206,6 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
 
 /* Computer: i primi 5 riquadri tutti della stessa larghezza e altezza */
 @media (min-width:561px){
-  .hero__boxes{display:grid;grid-auto-rows:1fr;gap:.75rem;width:100%;max-width:520px;margin-top:2.5rem}
+  .hero__boxes{display:grid;grid-auto-rows:1fr;gap:.75rem;width:100%;max-width:none;margin-top:2.5rem}
   .hero__boxes>.onair,.hero__boxes>.lcn-btn,.hero__boxes>.vc-btn{margin:0;width:100%;max-width:none;height:100%;box-sizing:border-box}
 }
