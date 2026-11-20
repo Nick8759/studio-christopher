@@ -295,8 +295,8 @@
 
 /* ---------- Lingue (Google Traduttore) ---------- */
 (() => {
-  const FLAG = {it:'it',en:'gb',es:'es',fr:'fr',pt:'pt',ro:'ro','ro-md':'md',hu:'hu',sl:'si',de:'de',sv:'se',nl:'nl',el:'gr',lt:'lt',sr:'rs',sq:'al',bs:'ba',ur:'pk',hi:'in',ar:'iq','ar-sa':'sa','ar-tn':'tn','ar-ma':'ma',fa:'ir',wo:'sn',rom:'rom',da:'dk',lb:'lu','nl-be':'be'};
-  const BASE = {'ro-md':'ro','ar-sa':'ar','ar-tn':'ar','ar-ma':'ar','nl-be':'nl'};
+  const FLAG = {it:'it',en:'gb',es:'es',fr:'fr',pt:'pt',ro:'ro','ro-md':'md',hu:'hu',sl:'si',de:'de',sv:'se',nl:'nl',el:'gr',lt:'lt',sr:'rs',sq:'al',bs:'ba',ur:'pk',hi:'in',ar:'iq','ar-sa':'sa','ar-tn':'tn','ar-ma':'ma',fa:'ir',wo:'sn',rom:'rom',da:'dk',lb:'lu','nl-be':'be','el-cy':'cy'};
+  const BASE = {'ro-md':'ro','ar-sa':'ar','ar-tn':'ar','ar-ma':'ar','nl-be':'nl','el-cy':'el'};
   const saved = (() => { try { return localStorage.getItem('sc-lang'); } catch (e) { return null; } })();
   const m = document.cookie.match(/googtrans=\/it\/([a-zA-Z-]+)/);
   let cur = m ? (saved && BASE[saved] === m[1] ? saved : m[1]) : 'it';
