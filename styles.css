@@ -1209,3 +1209,13 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
   .hero__boxes{display:grid;grid-auto-rows:1fr;gap:.75rem;width:100%;max-width:none;margin-top:2.5rem}
   .hero__boxes>.onair,.hero__boxes>.lcn-btn,.hero__boxes>.vc-btn{margin:0;width:100%;max-width:none;height:100%;box-sizing:border-box}
 }
+
+/* Telefono fold aperto / tablet: foto iniziale +40% */
+@media (min-width:641px) and (max-width:960px){
+  .hero__headline .hero__face{width:clamp(308px,44vw,360px)!important}
+}
+
+/* Computer: foto iniziale più grande */
+@media (min-width:961px){
+  .hero__portrait{width:clamp(640px,54vw,840px)!important;justify-self:end;margin-right:calc(-1 * clamp(0px,(100vw - 1240px)/2,100px))!important}
+}
