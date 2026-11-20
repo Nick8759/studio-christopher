@@ -295,7 +295,7 @@
 
 /* ---------- Lingue (Google Traduttore) ---------- */
 (() => {
-  const FLAG = {it:'it',en:'gb',es:'es',fr:'fr',pt:'pt',ro:'ro','ro-md':'md',hu:'hu',sl:'si',de:'de',sv:'se',nl:'nl',el:'gr',lt:'lt',sr:'rs',sq:'al',bs:'ba',ur:'pk',hi:'in',ar:'iq','ar-sa':'sa','ar-tn':'tn','ar-ma':'ma',fa:'ir',wo:'sn',rom:'rom',da:'dk',lb:'lu','nl-be':'be','el-cy':'cy',fi:'fi',tr:'tr','de-ch':'ch'};
+  const FLAG = {it:'it',en:'gb',es:'es',fr:'fr',pt:'pt',ro:'ro','ro-md':'md',hu:'hu',sl:'si',de:'de',sv:'se',nl:'nl',el:'gr',lt:'lt',sr:'rs',sq:'al',bs:'ba',ur:'pk',hi:'in',ar:'iq','ar-sa':'sa','ar-tn':'tn','ar-ma':'ma',fa:'ir',wo:'sn',rom:'rom',da:'dk',lb:'lu','nl-be':'be','el-cy':'cy',fi:'fi',tr:'tr','de-ch':'ch',pl:'pl',ru:'ru'};
   const BASE = {'ro-md':'ro','ar-sa':'ar','ar-tn':'ar','ar-ma':'ar','nl-be':'nl','el-cy':'el','de-ch':'de'};
   const saved = (() => { try { return localStorage.getItem('sc-lang'); } catch (e) { return null; } })();
   const m = document.cookie.match(/googtrans=\/it\/([a-zA-Z-]+)/);
@@ -328,7 +328,7 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => choose(b.dataset.lang)));
   window.gtInit = () => {
-    new google.translate.TranslateElement({ pageLanguage: 'it', includedLanguages: 'en,es,fr,pt,ro,hu,sl,de,sv,nl,el,lt,sr,sq,bs,ur,hi,ar,fa,wo,rom,da,lb,fi,tr', autoDisplay: false }, 'gt');
+    new google.translate.TranslateElement({ pageLanguage: 'it', includedLanguages: 'en,es,fr,pt,ro,hu,sl,de,sv,nl,el,lt,sr,sq,bs,ur,hi,ar,fa,wo,rom,da,lb,fi,tr,pl,ru', autoDisplay: false }, 'gt');
   };
   const s = document.createElement('script');
   s.src = 'https://translate.google.com/translate_a/element.js?cb=gtInit';
