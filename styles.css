@@ -1197,3 +1197,9 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
 @media (max-width:560px){.gold-ref{font-size:.84rem;white-space:nowrap}}
 .lang__panel{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 .lang__opt span{min-width:0;overflow-wrap:anywhere;line-height:1.25}
+
+/* Tema chiaro: blocco "Sia chiara una cosa" leggibile */
+@keyframes appealBlinkLight{0%{color:#8a5a0a}50%{color:#b07a1e}}
+@keyframes appealGlowLight{0%,100%{text-shadow:0 0 10px rgba(201,150,60,.35)}50%{text-shadow:none}}
+[data-theme="light"] .appeal__all{color:#2a2016}
+[data-theme="light"] .appeal__clear,[data-theme="light"] .appeal__all span{color:#8a5a0a;animation:appealBlinkLight 1.2s steps(1,end) infinite,appealGlowLight 1.2s ease-in-out infinite}
