@@ -1227,3 +1227,7 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
   .hero__headline .hero__title br{display:none}
   .hero__headline .hero__face{order:2;float:none!important;flex:0 0 auto;shape-outside:none!important;width:clamp(308px,48vw,430px)!important;margin:-1rem 0 0 -.25rem!important}
 }
+
+/* coreano: non spezzare le parole a metà */
+html[lang|="ko"] body{word-break:keep-all}
+@media (max-width:640px){html[lang|="ko"] .hero__title{font-size:clamp(1.7rem,7.6vw,2.1rem)!important;line-height:1.18!important}}
