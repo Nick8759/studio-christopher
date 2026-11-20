@@ -295,10 +295,11 @@
 
 /* ---------- Lingue (Google Traduttore) ---------- */
 (() => {
-  const FLAG = {it:'it',en:'gb',es:'es',fr:'fr',pt:'pt',ro:'ro','ro-md':'md',hu:'hu',sl:'si',de:'de',sv:'se',nl:'nl',el:'gr',lt:'lt',sr:'rs',sq:'al',bs:'ba',ur:'pk',hi:'in',ar:'iq',fa:'ir'};
+  const FLAG = {it:'it',en:'gb',es:'es',fr:'fr',pt:'pt',ro:'ro','ro-md':'md',hu:'hu',sl:'si',de:'de',sv:'se',nl:'nl',el:'gr',lt:'lt',sr:'rs',sq:'al',bs:'ba',ur:'pk',hi:'in',ar:'iq','ar-sa':'sa','ar-tn':'tn','ar-ma':'ma',fa:'ir',wo:'sn',rom:'rom',da:'dk',lb:'lu','nl-be':'be'};
+  const BASE = {'ro-md':'ro','ar-sa':'ar','ar-tn':'ar','ar-ma':'ar','nl-be':'nl'};
   const saved = (() => { try { return localStorage.getItem('sc-lang'); } catch (e) { return null; } })();
   const m = document.cookie.match(/googtrans=\/it\/([a-zA-Z-]+)/);
-  let cur = m ? (m[1] === 'ro' && saved === 'ro-md' ? 'ro-md' : m[1]) : 'it';
+  let cur = m ? (saved && BASE[saved] === m[1] ? saved : m[1]) : 'it';
   const btn = document.querySelector('[data-lang-toggle]'), panel = document.querySelector('.lang__panel'), flag = document.querySelector('[data-lang-flag]');
   const mark = () => {
     flag.src = 'assets/flags/' + (FLAG[cur] || 'it') + '.svg';
@@ -313,7 +314,7 @@
   };
   const choose = code => {
     try { localStorage.setItem('sc-lang', code); } catch (e) {}
-    const g = code === 'ro-md' ? 'ro' : code;
+    const g = BASE[code] || code;
     if (g === 'it') { setCookie(''); location.reload(); return; }
     setCookie(g);
     cur = code; mark(); close();
@@ -327,7 +328,7 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => choose(b.dataset.lang)));
   window.gtInit = () => {
-    new google.translate.TranslateElement({ pageLanguage: 'it', includedLanguages: 'en,es,fr,pt,ro,hu,sl,de,sv,nl,el,lt,sr,sq,bs,ur,hi,ar,fa', autoDisplay: false }, 'gt');
+    new google.translate.TranslateElement({ pageLanguage: 'it', includedLanguages: 'en,es,fr,pt,ro,hu,sl,de,sv,nl,el,lt,sr,sq,bs,ur,hi,ar,fa,wo,rom,da,lb', autoDisplay: false }, 'gt');
   };
   const s = document.createElement('script');
   s.src = 'https://translate.google.com/translate_a/element.js?cb=gtInit';

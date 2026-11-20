@@ -1195,3 +1195,5 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
 .gold-ref:hover{color:#fff}
 [data-theme="light"] .gold-ref b{color:#5a3d00}
 @media (max-width:560px){.gold-ref{font-size:.84rem;white-space:nowrap}}
+.lang__panel{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.lang__opt span{min-width:0;overflow-wrap:anywhere;line-height:1.25}
