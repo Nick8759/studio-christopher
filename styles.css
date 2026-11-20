@@ -1219,3 +1219,11 @@ html.translated-ltr .brand__tag,html.translated-rtl .brand__tag{display:none}
 @media (min-width:961px){
   .hero__portrait{width:clamp(640px,54vw,840px)!important;justify-self:end;margin-right:calc(-1 * clamp(0px,(100vw - 1240px)/2,100px))!important}
 }
+
+/* Telefono fold aperto: titolo in colonna stretta, foto accostata */
+@media (min-width:641px) and (max-width:960px){
+  .hero__headline{display:flex!important;align-items:center!important;justify-content:flex-start;gap:0!important}
+  .hero__headline .hero__title{order:1;flex:0 0 auto;width:5.7em!important;max-width:none!important;line-height:1.02!important}
+  .hero__headline .hero__title br{display:none}
+  .hero__headline .hero__face{order:2;float:none!important;flex:0 0 auto;shape-outside:none!important;width:clamp(308px,48vw,430px)!important;margin:-1rem 0 0 -.25rem!important}
+}
