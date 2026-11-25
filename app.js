@@ -360,3 +360,46 @@
   }
   load(); setInterval(load,30000);
 })();
+
+/* ===== App installabile (PWA) ===== */
+(function(){
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); });
+  }
+  var standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  if (standalone) return;
+  var bar = document.querySelector('[data-appbar]');
+  var msg = document.querySelector('[data-appbar-msg]');
+  var btns = document.querySelectorAll('[data-app-install]');
+  var footerBtn = document.querySelector('.footer__app');
+  var deferred = null;
+  var ua = navigator.userAgent;
+  var isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var KEY = 'sc-appbar-closed';
+  function closed(){ try { return Date.now() - (+localStorage.getItem(KEY) || 0) < 7*864e5; } catch(e){ return false; } }
+  function show(){ if (!bar || closed()) return; bar.hidden = false; document.body.classList.add('has-appbar'); }
+  function hide(save){ if (!bar) return; bar.hidden = true; document.body.classList.remove('has-appbar'); if (save) try { localStorage.setItem(KEY, Date.now()); } catch(e){} }
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault(); deferred = e;
+    if (footerBtn) footerBtn.hidden = false;
+    setTimeout(show, 3500);
+  });
+  if (isIOS) {
+    if (footerBtn) footerBtn.hidden = false;
+    if (msg) msg.innerHTML = 'Tocca <b>Condividi</b> e poi <b>Aggiungi alla schermata Home</b>.';
+    var go = bar && bar.querySelector('.appbar__go'); if (go) go.hidden = true;
+    setTimeout(show, 3500);
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){
+    if (deferred) {
+      deferred.prompt();
+      deferred.userChoice.finally(function(){ deferred = null; hide(true); if (footerBtn) footerBtn.hidden = true; });
+    } else if (isIOS) {
+      if (bar && bar.hidden) { try { localStorage.removeItem(KEY); } catch(e){} show(); }
+      else if (msg) { msg.innerHTML = 'Su iPhone: tocca l\u2019icona <b>Condividi</b> in basso, poi <b>Aggiungi alla schermata Home</b>.'; }
+    }
+  }); });
+  var x = document.querySelector('[data-appbar-close]');
+  if (x) x.addEventListener('click', function(){ hide(true); });
+  window.addEventListener('appinstalled', function(){ hide(true); if (footerBtn) footerBtn.hidden = true; });
+})();
