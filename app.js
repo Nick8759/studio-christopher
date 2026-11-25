@@ -403,3 +403,29 @@
   if (x) x.addEventListener('click', function(){ hide(true); });
   window.addEventListener('appinstalled', function(){ hide(true); if (footerBtn) footerBtn.hidden = true; });
 })();
+
+/* ===== Pagamenti e offerte (PayPal: carta di credito, prepagata, bancomat) ===== */
+(function(){
+  var sec = document.getElementById('pagamenti'); if (!sec) return;
+  var form = sec.querySelector('[data-pay-form]'), inp = sec.querySelector('[data-pay-amount]');
+  var chips = sec.querySelectorAll('.pay__chip');
+  chips.forEach(function(c){ c.addEventListener('click', function(){
+    chips.forEach(function(o){ o.classList.toggle('is-on', o === c); });
+    inp.value = c.dataset.amt || ''; if (!c.dataset.amt) inp.focus();
+  }); });
+  inp.addEventListener('input', function(){ chips.forEach(function(o){ o.classList.toggle('is-on', o.dataset.amt && o.dataset.amt === inp.value); }); });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var via = (e.submitter && e.submitter.dataset.payVia) || 'paypal';
+    var amt = Math.round((parseFloat(String(inp.value).replace(',', '.')) || 0) * 100) / 100;
+    var me = (sec.dataset.paypal || '').trim().replace(/^https?:\/\/(www\.)?paypal\.me\//i, '').replace(/\/.*$/, '');
+    var url;
+    var st = (sec.dataset.stripe || '').trim();
+    if (via === 'stripe') {
+      url = /^https:\/\/(buy\.stripe\.com|checkout\.stripe\.com|donate\.stripe\.com)\//i.test(st) ? st
+        : 'https://api.whatsapp.com/send?phone=393937272376&text=' + encodeURIComponent('Buongiorno Christopher, vorrei fare un pagamento' + (amt > 0 ? ' di ' + amt + ' euro' : '') + ' con carta tramite Stripe. Mi indica come procedere?');
+    } else if (me) url = 'https://www.paypal.com/paypalme/' + encodeURIComponent(me) + (amt > 0 ? '/' + amt + 'EUR' : '');
+    else url = 'https://api.whatsapp.com/send?phone=393937272376&text=' + encodeURIComponent('Buongiorno Christopher, vorrei fare un pagamento' + (amt > 0 ? ' di ' + amt + ' euro' : '') + ' con carta. Mi indica come procedere?');
+    window.open(url, '_blank', 'noopener');
+  });
+})();

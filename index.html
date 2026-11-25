@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://i.ytimg.com">
-<link rel="stylesheet" href="styles.css?v=20261125a">
+<link rel="stylesheet" href="styles.css?v=20261125d">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Studio Christopher","telephone":"+39 393 7272376","address":{"@type":"PostalAddress","streetAddress":"Via Udine 9","addressLocality":"Manzano","addressRegion":"UD","addressCountry":"IT"},"vatID":"IT02596720306","sameAs":["https://www.youtube.com/channel/UCWlzbA-pzFGQbpekpOc2tJQ","https://tiktok.com/@magoamore","https://www.instagram.com/christopher.cartomante.tv/"]}
 </script>
@@ -487,6 +487,45 @@
 </section>
 
 <!-- CONTATTI -->
+<!-- PAGAMENTI E OFFERTE -->
+<!-- Per attivare PayPal: scrivere il nome del link paypal.me in data-paypal (es. data-paypal="StudioChristopher").
+     Per attivare Stripe: incollare il Payment Link di Stripe in data-stripe (es. data-stripe="https://buy.stripe.com/...") -->
+<section class="pay" id="pagamenti" aria-labelledby="payTitle" data-paypal="" data-stripe="">
+  <div class="wrap">
+    <div class="pay__card reveal">
+      <div class="pay__intro">
+        <span class="eyebrow">Pagamenti e offerte</span>
+        <h2 id="payTitle">Paga o lascia un'offerta <em>in sicurezza</em></h2>
+        <p>Puoi pagare un consulto o inviare un'offerta libera con carta di credito, carta prepagata o bancomat. Scegli tu come pagare: con PayPal, anche senza avere un conto, oppure con Stripe. Entrambi sono circuiti protetti.</p>
+        <ul class="pay__cards" aria-label="Carte accettate">
+          <li class="pc pc--visa" title="Visa"><svg viewBox="0 0 48 16" width="48" height="16" aria-hidden="true"><text x="24" y="13.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-style="italic" font-size="15" fill="#1a1f71">VISA</text></svg><span class="sr-only">Visa</span></li>
+          <li class="pc" title="Mastercard"><svg viewBox="0 0 38 24" width="38" height="24" aria-hidden="true"><circle cx="14" cy="12" r="9" fill="#eb001b"/><circle cx="24" cy="12" r="9" fill="#f79e1b"/><path d="M19 4.6a9 9 0 0 1 0 14.8 9 9 0 0 1 0-14.8z" fill="#ff5f00"/></svg><span class="sr-only">Mastercard</span></li>
+          <li class="pc" title="Maestro / Bancomat"><svg viewBox="0 0 38 24" width="38" height="24" aria-hidden="true"><circle cx="14" cy="12" r="9" fill="#0099df"/><circle cx="24" cy="12" r="9" fill="#ed0006"/><path d="M19 4.6a9 9 0 0 1 0 14.8 9 9 0 0 1 0-14.8z" fill="#6c6bbd"/></svg><span class="sr-only">Maestro</span></li>
+          <li class="pc pc--txt" title="Carte prepagate">Prepagata</li>
+          <li class="pc pc--txt" title="Bancomat">Bancomat</li>
+          <li class="pc pc--pp" title="PayPal"><svg viewBox="0 0 52 18" width="52" height="18" aria-hidden="true"><text x="0" y="14" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-style="italic" font-size="15"><tspan fill="#003087">Pay</tspan><tspan fill="#009cde">Pal</tspan></text></svg><span class="sr-only">PayPal</span></li>
+          <li class="pc pc--stripe" title="Stripe"><svg viewBox="0 0 50 20" width="50" height="20" aria-hidden="true"><text x="25" y="15.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="16" letter-spacing="-.4" fill="#fff">stripe</text></svg><span class="sr-only">Stripe</span></li>
+        </ul>
+      </div>
+      <form class="pay__form" data-pay-form novalidate>
+        <span class="pay__label" id="payAmountLbl">Scegli l'importo</span>
+        <div class="pay__chips" role="group" aria-labelledby="payAmountLbl">
+          <button type="button" class="pay__chip" data-amt="20">20 €</button>
+          <button type="button" class="pay__chip" data-amt="50">50 €</button>
+          <button type="button" class="pay__chip" data-amt="100">100 €</button>
+          <button type="button" class="pay__chip" data-amt="">Offerta libera</button>
+        </div>
+        <label class="pay__field"><span>Importo in euro</span><input type="number" inputmode="decimal" min="1" step="1" placeholder="Es. 30" data-pay-amount></label>
+        <div class="pay__btns">
+          <button type="submit" class="btn btn--gold pay__go" data-pay-via="paypal"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg><span>Paga con PayPal</span></button>
+          <button type="submit" class="btn pay__go pay__go--stripe" data-pay-via="stripe"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg><span>Paga con Stripe</span></button>
+        </div>
+        <p class="pay__note"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>Pagamento protetto. Christopher non vede mai i dati della tua carta.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section class="section contact" id="contatti">
   <div class="wrap contact__grid">
     <div class="contact__info reveal">
@@ -740,7 +779,7 @@
 </dialog>
 
 <script src="data.js"></script>
-<script src="app.js?v=20261125a"></script>
+<script src="app.js?v=20261125d"></script>
 <div id="gt" hidden></div>
 </body>
 </html>
