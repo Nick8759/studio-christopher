@@ -1314,3 +1314,16 @@ body.has-appbar .fab{bottom:6.4rem}
   .hero__lead{text-align:center;margin-left:auto;margin-right:auto;max-width:56ch}
   .hero__cta{justify-content:center;margin-left:auto;margin-right:auto}
 }
+
+/* Pulsanti "Esplora i video" e "Scrivi a Christopher" uno accanto all'altro, +40% di larghezza */
+.hero__ctarow{display:flex;flex-wrap:nowrap;align-items:center;gap:.75rem;margin-top:1.4rem;position:relative;z-index:3}
+.hero__ctarow > .hero__cta{margin:0!important;flex:0 0 auto}
+.hero__ctarow .btn{width:255px!important;min-width:0!important;justify-content:center}
+@media (min-width:641px) and (max-width:960px){.hero__ctarow{justify-content:center}}
+@media (max-width:640px){
+  .hero__ctarow{gap:.5rem;margin-top:.8rem}
+  .hero__ctarow > .hero__cta{flex:1 1 0;min-width:0}
+  .hero__ctarow .btn{width:100%!important;flex:1 1 auto!important;padding:.8rem .5rem!important;font-size:.86rem!important;gap:.35rem}
+  .hero__ctarow .btn svg{width:14px;height:14px}
+}
+@media (max-width:370px){.hero__ctarow .btn{font-size:.78rem!important;padding:.75rem .35rem!important}}
