@@ -404,7 +404,7 @@
   window.addEventListener('appinstalled', function(){ hide(true); if (footerBtn) footerBtn.hidden = true; });
 })();
 
-/* ===== Pagamenti e offerte (PayPal: carta di credito, prepagata, bancomat) ===== */
+/* ===== Pagamenti e offerte (Stripe: carta di credito, prepagata, bancomat) ===== */
 (function(){
   var sec = document.getElementById('pagamenti'); if (!sec) return;
   var form = sec.querySelector('[data-pay-form]'), inp = sec.querySelector('[data-pay-amount]');
@@ -416,12 +416,14 @@
   inp.addEventListener('input', function(){ chips.forEach(function(o){ o.classList.toggle('is-on', o.dataset.amt && o.dataset.amt === inp.value); }); });
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var via = (e.submitter && e.submitter.dataset.payVia) || 'paypal';
+    var via = (e.submitter && e.submitter.dataset.payVia) || 'stripe';
     var amt = Math.round((parseFloat(String(inp.value).replace(',', '.')) || 0) * 100) / 100;
     var me = (sec.dataset.paypal || '').trim().replace(/^https?:\/\/(www\.)?paypal\.me\//i, '').replace(/\/.*$/, '');
     var url;
     var st = (sec.dataset.stripe || '').trim();
     if (via === 'stripe') {
+      var so = (sec.dataset.stripeOfferta || '').trim();
+      if (so && amt !== 100) st = so;
       url = /^https:\/\/(buy\.stripe\.com|checkout\.stripe\.com|donate\.stripe\.com)\//i.test(st) ? st
         : 'https://api.whatsapp.com/send?phone=393937272376&text=' + encodeURIComponent('Buongiorno Christopher, vorrei fare un pagamento' + (amt > 0 ? ' di ' + amt + ' euro' : '') + ' con carta tramite Stripe. Mi indica come procedere?');
     } else if (me) url = 'https://www.paypal.com/paypalme/' + encodeURIComponent(me) + (amt > 0 ? '/' + amt + 'EUR' : '');

@@ -1302,3 +1302,7 @@ body.has-appbar .fab{bottom:6.4rem}
 .pay__stripe-note{margin:0;font-size:.8rem;line-height:1.45;color:var(--text-muted,var(--text));text-align:center}
 .pay__stripe-note strong{color:var(--text)}
 @media (min-width:600px) and (max-width:860px){.pay__stripe-note{grid-column:1/-1}}
+@media (min-width:600px) and (max-width:860px){.pay__btns{grid-template-columns:1fr}}
+.pc--img{padding:0;min-width:0;background:none;box-shadow:0 2px 8px rgba(0,0,0,.25);overflow:hidden}
+.pc--img img{display:block;height:38px;width:auto}
+@media (min-width:861px){.pc--img img{height:34px}}
