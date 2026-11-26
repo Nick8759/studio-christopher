@@ -1299,3 +1299,6 @@ body.has-appbar .fab{bottom:6.4rem}
 .pay__go{white-space:nowrap}
 @media (min-width:600px) and (max-width:860px){.pay__btns{grid-template-columns:1fr 1fr}}
 @media (min-width:861px){.pay__cards{gap:.4rem}.pc{min-width:0;padding:0 .5rem;height:34px}.pc--txt{font-size:.72rem}}
+.pay__stripe-note{margin:0;font-size:.8rem;line-height:1.45;color:var(--text-muted,var(--text));text-align:center}
+.pay__stripe-note strong{color:var(--text)}
+@media (min-width:600px) and (max-width:860px){.pay__stripe-note{grid-column:1/-1}}
