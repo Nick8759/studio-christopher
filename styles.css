@@ -1336,3 +1336,14 @@ body.has-appbar .fab{bottom:6.4rem}
 @keyframes appBlink{0%,100%{background:transparent;color:var(--gold);box-shadow:0 0 0 0 rgba(212,175,95,0)}50%{background:var(--gold);color:#1a1208;box-shadow:0 0 14px 2px rgba(212,175,95,.55)}}
 .footer__app{animation:appBlink 1.4s ease-in-out infinite}
 .footer__app:hover{animation-play-state:paused}
+
+/* Banner cookie */
+.ck{position:fixed;left:50%;bottom:1.1rem;transform:translateX(-50%);z-index:80;width:min(620px,calc(100vw - 2rem));display:flex;align-items:center;gap:1rem;padding:1rem 1.1rem;border:1px solid color-mix(in srgb,var(--gold,#d4b06a) 55%,transparent);border-radius:18px;background:color-mix(in srgb,var(--surface) 95%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 40px -12px rgba(0,0,0,.6)}
+.ck[hidden]{display:none}
+.ck__txt{margin:0;font-size:.86rem;line-height:1.45;color:var(--text)}
+.ck__txt b{color:var(--gold);margin-right:.3rem}
+.ck__link{background:none;border:0;padding:0;font:inherit;color:var(--gold);text-decoration:underline;cursor:pointer}
+.ck__btns{display:flex;gap:.5rem;flex:0 0 auto}
+.ck__btns .btn{padding:.6rem 1.1rem}
+body.has-ck .fab{bottom:7rem}
+@media (max-width:640px){.ck{flex-direction:column;align-items:stretch;bottom:.7rem;gap:.75rem}.ck__btns .btn{flex:1 1 0;justify-content:center}body.has-ck .fab{bottom:11rem}}

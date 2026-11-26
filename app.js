@@ -377,7 +377,7 @@
   var isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   var KEY = 'sc-appbar-closed';
   function closed(){ try { return Date.now() - (+localStorage.getItem(KEY) || 0) < 7*864e5; } catch(e){ return false; } }
-  function show(){ if (!bar || closed()) return; bar.hidden = false; document.body.classList.add('has-appbar'); }
+  function show(){ if (!bar || closed()) return; if (!window.scCkDone) { window.scCkWait = show; return; } bar.hidden = false; document.body.classList.add('has-appbar'); }
   function hide(save){ if (!bar) return; bar.hidden = true; document.body.classList.remove('has-appbar'); if (save) try { localStorage.setItem(KEY, Date.now()); } catch(e){} }
   window.addEventListener('beforeinstallprompt', function(e){
     e.preventDefault(); deferred = e;
@@ -430,4 +430,22 @@
     else url = 'https://api.whatsapp.com/send?phone=393937272376&text=' + encodeURIComponent('Buongiorno Christopher, vorrei fare un pagamento' + (amt > 0 ? ' di ' + amt + ' euro' : '') + ' con carta. Mi indica come procedere?');
     window.open(url, '_blank', 'noopener');
   });
+})();
+
+/* Banner cookie (Google Tag Manager solo con consenso) */
+(function(){
+  var ck = document.querySelector('[data-ck]'); if (!ck) return;
+  var KEY = 'sc-cookie', v = null;
+  try { v = localStorage.getItem(KEY); } catch(e){}
+  function done(){ ck.hidden = true; document.body.classList.remove('has-ck'); window.scCkDone = true; if (window.scCkWait) { var f = window.scCkWait; window.scCkWait = null; f(); } }
+  function open(){ ck.hidden = false; document.body.classList.add('has-ck'); }
+  function save(x){ try { localStorage.setItem(KEY, x); } catch(e){} }
+  if (v === 'si' || v === 'no') { window.scCkDone = true; } else { setTimeout(open, 1200); }
+  ck.querySelector('[data-ck-si]').addEventListener('click', function(){ save('si'); if (window.scLoadGTM) window.scLoadGTM(); done(); });
+  ck.querySelector('[data-ck-no]').addEventListener('click', function(){
+    var was = v === 'si'; save('no'); v = 'no';
+    if (window.scGTM || was) { location.reload(); return; }
+    done();
+  });
+  document.querySelectorAll('[data-ck-open]').forEach(function(b){ b.addEventListener('click', open); });
 })();
