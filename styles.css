@@ -1383,3 +1383,15 @@ body.has-ck .fab{bottom:7rem}
 @media (min-width:861px) and (max-width:1180px){.clar__card{flex-wrap:wrap}.clar__photo{width:100%;max-height:300px}.clar__photo img{height:300px;object-fit:cover}}
 @media (max-width:860px){.clar__photo{width:100%}}
 @media (min-width:861px) and (max-width:1180px){.clar__photo{width:min(100%,620px);max-height:none;margin-inline:auto}.clar__photo img{height:auto;object-fit:initial}}
+
+/* Fold (641–960px): "Non aspettare che sia troppo tardi" più grande, foto più grande, tutto centrato */
+@media (min-width:641px) and (max-width:960px){
+  .contact__info{text-align:center}
+  .contact__info>.eyebrow{display:flex;justify-content:center;margin-left:auto;margin-right:auto;width:max-content}
+  .contact__head{justify-content:center;gap:2rem;margin-top:.6rem}
+  .contact__head .section__title{font-size:clamp(2.9rem,6.6vw,3.8rem)!important;line-height:1.08;text-align:left}
+  .contact__photo{width:clamp(190px,26vw,240px)!important}
+  .contact__info>p{margin-left:auto;margin-right:auto;max-width:52ch}
+  .contact__list li{align-items:center}
+  .contact__mc{align-self:center;text-align:center}
+}
