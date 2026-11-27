@@ -1,5 +1,5 @@
 /* Studio Christopher – service worker: l'app si apre anche senza connessione */
-const CACHE = 'sc-app-v10';
+const CACHE = 'sc-app-v11';
 const SHELL = ['./', './index.html', './styles.css', './app.js', './data.js', './manifest.webmanifest',
   './assets/app/icon-192.png', './assets/app/icon-512.png', './assets/christopher-volto.webp', './assets/christopher-mini.webp', './assets/logo-canale-italia.png'];
 self.addEventListener('install', e => {
